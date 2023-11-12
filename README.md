@@ -30,7 +30,6 @@ Usuário oficina
 
 ## RNs (Regras de negócio)
 
-- [ ]  
 - [ ] O usuário não deve poder se cadastrar com um e-mail duplicado;
 - [ ] Pode cadastrar somento uma oficina por CNJPJ
 

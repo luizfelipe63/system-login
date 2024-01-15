@@ -1,28 +1,23 @@
-# Inventory Control
+# Maitence
+
+## Ideia do projeto: Documentação das atividades de manutenção do veículo.
 
 ## MVP
 
 ## RFs (Requisitos funcionais)
 
-Usuário comum 
-
-- [ ] Deve ser possível se Registrar;
+- [ ] Deve ser possível se cadastrar;
 - [ ] Deve ser possível se autenticar;
 - [ ] Deve ser possível obter o perfil de um usuário logado;
+- [ ] Deve ser possível o usúario acionar a autenticação de dois fatores
 - [ ] Deve ser possível reazilzar um CRUD de veículo;
 - [ ] Deve ser possível fazer registro de manutenção;
 - [ ] Deve ser possível consultar o histórico de manutenção de um veículo específico;
 - [ ] Deve ser possível enviar notificação de manutenção;
 - [ ] Deve ser possível calcular os custos totais de manutenção do veículo;
-
-## Extras
-
 - [ ] Deve ser possível vizualizar oficinas cadastradas;
 - [ ] Deve ser possível fazer um orçamento com uma oficina;
 - [ ] Implementar autenticação com multiplos fatores;
-
-Usuário oficina
-
 - [ ] Deve ser possível cadastrar uma oficina;
 - [ ] Deve ser possível realizar login com uma oficina;
 - [ ] Deve ser possível oferecer serviço;

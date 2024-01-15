@@ -11,33 +11,11 @@ datasource db {
 }
 
 model User {
-  id            String     @id @default(uuid())
+  id            String   @id @default(uuid())
   name          String
   email         String
   password_hash String
-  created_at    DateTime   @default(now())
-  Products      Products[]
+  created_at    DateTime @default(now())
 
   @@map("users")
-}
-
-model Products {
-  id          String @id @default(uuid())
-  name        String @unique
-  description String
-  quantity    Int
-  price       Float
-
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
-
-  supplier supplier[]
-}
-
-model supplier {
-  id   String @id @default(uuid())
-  name String
-
-  Product    Products @relation(fields: [productsId], references: [id])
-  productsId String
 }

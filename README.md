@@ -1,4 +1,4 @@
-# Maitence
+# Maintenance
 
 ## Ideia do projeto: Documentação das atividades de manutenção do veículo.
 

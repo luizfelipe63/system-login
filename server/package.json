@@ -1,5 +1,5 @@
 {
-  "name": "maintenance",
+  "name": "2fa-authenticate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

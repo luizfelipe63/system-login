@@ -17,5 +17,13 @@ model User {
   password_hash String
   created_at    DateTime @default(now())
 
+  otp_enabled  Boolean @default(false)
+  otp_verified Boolean @default(false)
+
+  otp_ascii    String?
+  otp_hex      String?
+  otp_base32   String?
+  otp_auth_url String?
+
   @@map("users")
 }

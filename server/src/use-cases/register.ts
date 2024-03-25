@@ -1,6 +1,7 @@
 import { UsersRepository } from '@/repositories/users-repository'
 import { hash } from 'bcryptjs'
 import { User } from '@prisma/client'
+import { UseExistingWithEmail } from './errors/use-existing-whith-email-error'
 
 interface RegisterUseCaseRequest {
   name: string
@@ -20,6 +21,12 @@ export class RegisterUserCase {
     name,
     password,
   }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
+    const useExistingWithEmail = await this.usersRepository.findByEmail(email)
+
+    if (useExistingWithEmail) {
+      throw new UseExistingWithEmail()
+    }
+
     const password_hash = await hash(password, 6)
 
     const user = await this.usersRepository.create({

@@ -21,15 +21,19 @@ export class InMemoryUsersRepository implements UsersRepository {
       email: data.email,
       password_hash: data.password_hash,
       created_at: new Date(),
-      otp_enabled: false,
-      otp_verified: false,
-      otp_ascii: null,
-      otp_hex: null,
-      otp_base32: null,
-      otp_auth_url: null,
     }
 
     this.items.push(user)
+
+    return user
+  }
+
+  async findById(id: string) {
+    const user = this.items.find((item) => item.id === id)
+
+    if (!user) {
+      return null
+    }
 
     return user
   }

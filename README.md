@@ -4,8 +4,8 @@
 
 ## RFs (Requisitos funcionais)
 
-- [ ] Deve ser possível se cadastrar;
-- [ ] Deve ser possível se autenticar;
+- [x] Deve ser possível se cadastrar;
+- [x] Deve ser possível se autenticar;
 - [ ] Deve ser possível recuperar senha esquecida 
 - [ ] Deve ser possível o usúario acionar a autenticação de dois fatores
 - [ ] Deve ser possível o usúario desabilitar a autenticação de dois fatores

@@ -27,8 +27,9 @@ model twoFactorAuthentication {
   otp_base32    String
   otp_auth_url  String
   created_at    DateTime @default(now())
-  user          User     @relation(fields: [user_id], references: [id])
-  user_id       String
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
 
   @@map("two-factor-authentication")
 }

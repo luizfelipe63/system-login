@@ -1,12 +1,12 @@
 import fastify from 'fastify'
 import { ZodError } from 'zod'
-import { env } from './env' 
-import { userRoutes} from './http/controllers/user/routes'
+import { env } from './env'
+import { userRoutes } from './http/controllers/user/routes'
 import fastifyJwt from '@fastify/jwt'
 import fastifyCookie from '@fastify/cookie'
 import { twoFactorRoutes } from './http/controllers/two-factor/routes'
 
-  export const app = fastify()
+export const app = fastify()
 
 app.register(fastifyJwt, {
   secret: env.JWT_ENV,
@@ -38,4 +38,4 @@ app.setErrorHandler((error, _, reply) => {
   }
 
   return reply.status(500).send({ message: 'Internal server error.' })
-  })
+})

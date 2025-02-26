@@ -13,16 +13,16 @@ export class ProfileUseCase {
   constructor(private usersRepository: UsersRepository) {}
 
   async execute({
-    id
+    id,
   }: profileUseCaseRequest): Promise<profileUseCaseResponse> {
     const user = await this.usersRepository.findById(id)
 
     if (!user) {
-      throw new Error("User no exist")
-    } 
+      throw new Error('User no exist')
+    }
 
     return {
-      user
+      user,
     }
   }
 }

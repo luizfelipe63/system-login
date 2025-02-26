@@ -1,14 +1,15 @@
-import { twoFactorRepository } from '@/repositories/two-factor-repository';
-import { twoFactorAuthentication} from '@prisma/client'
-import * as OTPAuth from "otpauth";
+import { twoFactorRepository } from '@/repositories/two-factor-repository'
+import { twoFactorAuthentication } from '@prisma/client'
+import * as OTPAuth from 'otpauth'
+import { InvalidCode } from './errors/invalid-code'
 
 interface verifyUseCaseRequest {
-    id: string
-    token: string
+  id: string
+  token: string
 }
 
-interface  verifyUseCaseResponse {
-    twoFactorAuthentication: twoFactorAuthentication
+interface verifyUseCaseResponse {
+  twoFactorAuthentication: twoFactorAuthentication
 }
 
 export class VerifyUseCase {
@@ -17,37 +18,35 @@ export class VerifyUseCase {
   async execute({
     id,
     token,
-  }:  verifyUseCaseRequest): Promise< verifyUseCaseResponse> {
+  }: verifyUseCaseRequest): Promise<verifyUseCaseResponse> {
+    const twoFactorAuthentication = await this.twoFactorRepository.findyById(id)
 
-    const twoFactorAuthentication =  await this.twoFactorRepository.findyById(id)
-
-    if(!twoFactorAuthentication){
-        throw new Error('Usuario não encontrado')
+    if (!twoFactorAuthentication) {
+      throw new InvalidCode()
     }
 
-
-    let totp = new OTPAuth.TOTP({
-        issuer: "system-login.com",
-        label: "felipe",
-        algorithm: "SHA1",
-        digits: 6,
-        secret: twoFactorAuthentication.otp_base32!,
+    const totp = new OTPAuth.TOTP({
+      issuer: 'system-login.com',
+      label: 'felipe',
+      algorithm: 'SHA1',
+      digits: 6,
+      secret: twoFactorAuthentication.otp_base32!,
     })
 
-    let delta = totp.validate({
-        token
+    const delta = totp.validate({
+      token,
     })
 
-    if (delta === null){
-        throw new Error('Codigo invalido')
+    if (delta === null) {
+      throw new InvalidCode()
     }
 
     await this.twoFactorRepository.verifyCode(id, {
-        otp_validated: true
+      otp_validated: true,
     })
 
     return {
-      twoFactorAuthentication
+      twoFactorAuthentication,
     }
   }
 }

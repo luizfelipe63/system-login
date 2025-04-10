@@ -8,7 +8,7 @@ export const Button =  forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =
         <button
             {...props}
             ref={ref}
-            className={twMerge("bg-blue-600 p-4 rounded-lg text-zinc-100")}
+            className={twMerge("bg-blue-600 p-4 rounded-lg text-zinc-100 cursor-pointer")}
         />
     )
 })

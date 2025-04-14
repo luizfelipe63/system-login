@@ -1,10 +1,10 @@
+import fastifyCookie from '@fastify/cookie'
+import fastifyJwt from '@fastify/jwt'
 import fastify from 'fastify'
 import { ZodError } from 'zod'
 import { env } from './env'
-import { userRoutes } from './http/controllers/user/routes'
-import fastifyJwt from '@fastify/jwt'
-import fastifyCookie from '@fastify/cookie'
 import { twoFactorRoutes } from './http/controllers/two-factor/routes'
+import { userRoutes } from './http/controllers/user/routes'
 
 export const app = fastify()
 

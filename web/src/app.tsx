@@ -1,7 +1,7 @@
-import { CreateUser } from './components/create-user'
+import { Register } from './pages/register'
 
 function App() {
-  return <CreateUser />
+  return <Register />
 }
 
 export default App

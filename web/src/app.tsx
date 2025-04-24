@@ -1,7 +1,12 @@
-import { Register } from './pages/register'
+import { BrowserRouter } from 'react-router'
+import { Router } from './routes/routes'
 
 function App() {
-  return <Register />
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  )
 }
 
 export default App

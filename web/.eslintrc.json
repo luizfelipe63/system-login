@@ -3,6 +3,6 @@
       "@rocketseat/eslint-config/react"
     ],
     "rules": {
-        "endOfLine": "auto"
+        "endOfLine": "off"
     }
   }

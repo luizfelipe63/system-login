@@ -1,4 +1,13 @@
 import ilustacao from '../assets/illustration.png'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from '../components/ui/dialog'
 
 export function Profile() {
   return (
@@ -24,9 +33,20 @@ export function Profile() {
             <h1 className=" text-zinc-900">Two-factor methods</h1>
             <div className="px-4 py-3 flex justify-between rounded items-center border border-blue-300 bg-blue-50">
               <h2 className=" text-zinc-700">Authenticator app</h2>
-              <button className="bg-blue-600 text-xs p-2 rounded-lg text-zinc-100 cursor-pointer">
-                ADD
-              </button>
+              <Dialog>
+                <DialogTrigger>
+                  <button className="bg-blue-600 text-xs p-2 rounded-lg text-zinc-100 cursor-pointer">
+                    ADD
+                  </button>
+                </DialogTrigger>
+                <DialogPortal>
+                  <DialogOverlay />
+                  <DialogContent>
+                    <DialogTitle>Turn on 2-step verification</DialogTitle>
+                    <DialogDescription>Open authenticator and chose scan barcode</DialogDescription>
+                  </DialogContent>
+                </DialogPortal>
+              </Dialog>
             </div>
           </div>
         </div>
